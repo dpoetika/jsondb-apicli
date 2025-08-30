@@ -26,8 +26,8 @@ A lightweight, file-based JSON database with both CLI interface and REST API cap
 
 1. **Clone the repository:**
 ```bash
-git clone <repository-url>
-cd jsondb
+git clone https://github.com/dpoetika/jsondb-apicli
+cd jsondb-apicli
 ```
 
 2. **Install dependencies:**
