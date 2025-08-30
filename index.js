@@ -2,7 +2,57 @@
 const inquirer = require('inquirer');
 const db = require('./db');
 const server = require('./server');
-async function main() {
+
+// Komut satırı argümanlarını işle
+const args = process.argv.slice(2);
+const command = args[0];
+
+// Eğer komut verilmişse, doğrudan çalıştır
+if (command) {
+  switch (command) {
+    case 'start':
+    case 'server':
+      console.log('🚀 Starting JSON Database API Server...');
+      server.start();
+      break;
+    case 'cli':
+    case 'interactive':
+      runInteractiveCLI();
+      break;
+    case 'help':
+    case '--help':
+    case '-h':
+      showHelp();
+      break;
+    default:
+      console.log(`❌ Unknown command: ${command}`);
+      showHelp();
+      process.exit(1);
+  }
+} else {
+  // Komut verilmemişse interaktif CLI'yi başlat
+  runInteractiveCLI();
+}
+
+function showHelp() {
+  console.log(`
+📚 JSON Database CLI & API - Usage Guide
+
+Commands:
+  jsondb-apicli start     - Start the REST API server
+  jsondb-apicli server    - Start the REST API server
+  jsondb-apicli cli       - Run interactive CLI
+  jsondb-apicli help      - Show this help message
+
+Examples:
+  jsondb-apicli start     # Start API server on port 3000
+  jsondb-apicli cli       # Run interactive database operations
+
+For more information, visit: https://github.com/dpoetika/jsondb-apicli
+`);
+}
+
+async function runInteractiveCLI() {
   const { operation } = await inquirer.default.prompt([
     {
       type: 'list',
@@ -239,7 +289,7 @@ async function main() {
           case 'Stop Server':
             await serverInstance.close();
             console.log('Server stopped.');
-            return main(); // Return to main menu
+            return runInteractiveCLI(); // Return to main menu
             
           case 'Show Server Status':
             const port = serverInstance.address().port;
@@ -258,7 +308,5 @@ async function main() {
       process.exit(0);
   }
 
-  main(); // return to start
+  runInteractiveCLI(); // return to start
 }
-
-main();

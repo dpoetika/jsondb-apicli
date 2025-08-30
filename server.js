@@ -209,5 +209,6 @@ async function startServer(port = PORT) {
 
 module.exports = {
   startServer,
-  app
+  app,
+  start: () => startServer()
 };

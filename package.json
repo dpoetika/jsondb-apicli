@@ -1,15 +1,41 @@
 {
-  "name": "jsondb",
-  "version": "1.0.0",
+  "name": "jsondb-apicli",
+  "version": "1.0.2",
   "main": "index.js",
+  "bin": {
+    "jsondb-apicli": "./index.js"
+  },
   "scripts": {
+    "start": "node server.js",
+    "dev": "node index.js",
+    "cli": "node index.js",
+    "server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "json",
+    "database",
+    "cli",
+    "api",
+    "rest",
+    "nodejs",
+    "file-based",
+    "database-cli",
+    "json-db",
+    "local-database"
+  ],
+  "author": "dpoetika",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
+  "description": "A lightweight, file-based JSON database with both CLI interface and REST API capabilities. Built with Node.js, this project provides a simple yet powerful way to manage data using JSON files.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpoetika/jsondb-apicli.git"
+  },
+  "homepage": "https://github.com/dpoetika/jsondb-apicli#readme",
+  "bugs": {
+    "url": "https://github.com/dpoetika/jsondb-apicli/issues"
+  },
   "dependencies": {
     "inquirer": "^12.9.0",
     "express": "^4.18.2",

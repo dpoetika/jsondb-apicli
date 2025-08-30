@@ -24,6 +24,12 @@ A lightweight, file-based JSON database with both CLI interface and REST API cap
 
 ## 📦 Installation
 
+### Global Installation (Recommended)
+```bash
+npm install -g jsondb-apicli
+```
+
+### Local Installation
 1. **Clone the repository:**
 ```bash
 git clone https://github.com/dpoetika/jsondb-apicli
@@ -35,16 +41,34 @@ cd jsondb-apicli
 npm install
 ```
 
-3. **Start the application:**
+## 🛠️ Usage
+
+### Global Installation Usage
 ```bash
-node index.js
+# Start REST API server
+jsondb-apicli start
+
+# Run interactive CLI
+jsondb-apicli cli
+
+# Show help
+jsondb-apicli help
 ```
 
-## 🛠️ Dependencies
+### Local Installation Usage
+```bash
+# Start REST API server
+npm start
 
-- **inquirer**: Interactive command-line prompts
-- **express**: Web framework for REST API
-- **cors**: Cross-origin resource sharing
+# Run interactive CLI
+npm run cli
+
+# Start server directly
+node server.js
+
+# Run CLI directly
+node index.js
+```
 
 ## 📋 Usage
 
